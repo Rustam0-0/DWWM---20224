@@ -1,0 +1,26 @@
+#log_input{
+    width: 100%;
+}
+h2{
+    text-align:center;
+}
+#button{
+    width: 100px;
+    color: black;
+    background-color: lightgreen;
+    width: 100%;
+    text-align: center;
+}
+body{
+    width: 90%;
+    margin: 5px auto;
+    background: url(../img/sad.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#field{
+    background-color: white;
+    border-radius: 20px;
+    margin: 5px auto;
+    padding: 10px;
+}
