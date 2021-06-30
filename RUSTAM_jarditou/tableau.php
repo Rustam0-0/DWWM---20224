@@ -112,7 +112,7 @@
         <?php
                 while($row = $result->fetch_assoc()): ?>
             <tr>
-                <td bgcolor="#FFCC66"><img src="img/<?php echo $row['pro_id']; ?>.<?php $row['pro_photo']; ?>" width="90" height="90" alt="<?php echo $row['pro_id']; ?>.<?php $fileActualExt; ?>" /></td>
+                <td bgcolor="#FFCC66"><img src="img/<?php echo $row['pro_id']; ?>.<?php $fileActualExt?>" width="90" height="90" alt="<?php echo $row['pro_id']; ?>.<?php $fileActualExt; ?>" /></td>
                 <td bgcolor="#CCCCFF"><?php echo $row['pro_id']; ?></td>
                 <td bgcolor="#CCCCFF"><?php echo $row['pro_ref']; ?></td>
                 <td bgcolor="#FFCC66"><a id="link" class="link" href="reference.php?id=<?php echo $row['pro_id']?>"><?php echo $row['pro_libelle']; ?></a></td>

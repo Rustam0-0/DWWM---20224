@@ -74,30 +74,31 @@
         // }   
         
         ?>
+
+        <?php
+        $mysqli = new mysqli('localhost', 'root', '', 'jarditou') or die(mysqli_error($mysqli));
+        $result = $mysqli->query("SELECT * FROM produits JOIN categories ON categories.cat_id=produits.pro_cat_id") or die($mysqli->error);
+        $row = $result->fetch_assoc();
+        // var_dump($result);
+        // var_dump($row);
+        var_dump($_POST);
+        ?>
+
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" enctype="multipart/form-data">
-
-            <?php
-
-            $mysqli = new mysqli('localhost', 'root', '', 'jarditou') or die(mysqli_error($mysqli));
-
-            $result = $mysqli->query("SELECT * FROM produits JOIN categories ON categories.cat_id=produits.pro_cat_id") or die($mysqli->error);
-            $row = $result->fetch_assoc() ?>
-
-            <!-- <p class="pic"><img src="#" width="200" height="200" alt="<?php echo $row['pro_id']; ?>.jpg"></p> -->
 
             <div hidden class="form-group">
                 <label>ID :</label>
-                <input class="form-control" type="text" value="" id="pro_id" name="id">
+                <input class="form-control" type="text" value="<?php echo (isset($_POST['id'])) ? $_POST['id'] : '' ; ?>" id="pro_id" name="id">
             </div>
 
             <div class="form-group">
                 <label>Référence :</label>
-                <input class="form-control" type="text" value="" id="pro_ref" name="ref">
+                <input class="form-control" type="text" value="<?php echo (isset($_POST['ref'])) ? $_POST['ref'] : '' ;?>" id="pro_ref" name="ref">
             </div>
 
             <div class="form-group">
                 <label>Catégorie :</label>
-                <select class="form-control" name="cat" id="cat_nom">
+                <select class="form-control" name="cat" id="cat_nom" value="<?php echo (isset($_POST['cat'])) ? $_POST['cat'] : '' ;?>">
                 <option>Veuillez séléctionner une catégorie</option>  
                 <?php
                     $result_cat = mysqli_query($mysqli, "SELECT cat_nom, cat_id FROM categories");
@@ -110,27 +111,27 @@
 
             <div class="form-group">
                 <label>Libellé :</label>
-                <input class="form-control" type="text" value="" id="pro_libelle" name="lib">
+                <input class="form-control" type="text" value="<?php echo (isset($_POST['lib'])) ? $_POST['lib'] : '' ;?>" id="pro_libelle" name="lib">
             </div>
 
             <div class="form-group">
                 <label>Description :</label>
-                <textarea rows="3" class="form-control" value="" id="pro_description" name="description"></textarea>
+                <textarea rows="3" class="form-control" value="<?php echo (isset($_POST['description'])) ? $_POST['description'] : '' ;?>" id="pro_description" name="description"></textarea>
             </div>
 
             <div class="form-group">
                 <label>Prix :</label>
-                <input class="form-control" type="number" value="" id="pro_prix" name="prix">
+                <input class="form-control" type="number" value="<?php echo (isset($_POST['prix'])) ? $_POST['prix'] : '' ;?>" id="pro_prix" name="prix">
             </div>
 
             <div class="form-group">
                 <label>Stock :</label>
-                <input class="form-control" type="number" value="" id="pro_stock" name="stock">
+                <input class="form-control" type="number" value="<?php echo (isset($_POST['stock'])) ? $_POST['stock'] : '' ;?>" id="pro_stock" name="stock">
             </div>
 
             <div class="form-group">
                 <label>Couleur :</label>
-                <input class="form-control" type="text" value="" id="pro_couleur" name="coul">
+                <input class="form-control" type="text" value="<?php echo (isset($_POST['coul'])) ? $_POST['coul'] : '' ;?>" id="pro_couleur" name="coul">
             </div>
             
             <div class="form-group">

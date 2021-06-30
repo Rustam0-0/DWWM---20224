@@ -77,12 +77,10 @@
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])."?mod_id=".$mod_id;?>" method="POST" enctype="multipart/form-data">
 
             <?php
-
             $mysqli = new mysqli('localhost', 'root', '', 'jarditou') or die(mysqli_error($mysqli));
-
             $result = $mysqli->query("SELECT * FROM produits JOIN categories ON categories.cat_id=produits.pro_cat_id WHERE pro_id = $mod_id") or die($mysqli->error);
+            $row = $result->fetch_assoc();
             ?>
-            <?php $row = $result->fetch_assoc() ?>
 
             <p class="pic"><img src="img/<?php echo $row['pro_id']; ?>.<?php $fileActualExt?>" width="200" height="200" alt="<?php echo $row['pro_id']; ?>.jpg"></p>
 
